@@ -49,15 +49,15 @@ public class MealRestController {
 
     public Meal create(Meal meal) {
         int userId = AuthorizedUser.id();
-        LOG.info("create {} for User {}", meal, userId);
         checkNew(meal);
+        LOG.info("create {} for User {}", meal, userId);
         return service.save(meal, userId);
     }
 
     public void update(Meal meal, int id) {
         int userId = AuthorizedUser.id();
-        LOG.info("update {} for User {}", meal, userId);
         checkIdConsistent(meal, id);
+        LOG.info("update {} for User {}", meal, userId);
         service.update(meal, userId);
     }
 
