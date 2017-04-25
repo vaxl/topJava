@@ -22,8 +22,6 @@ import java.util.stream.Stream;
 public class InMemoryMealRepositoryImpl implements MealRepository {
     private static final Logger LOG = LoggerFactory.getLogger(InMemoryUserRepositoryImpl.class);
 
-    private static final Comparator<Meal> MEAL_COMPARATOR = Comparator.comparing(Meal::getDateTime).reversed();
-
     // Map  userId -> (mealId-> meal)
     private Map<Integer, Map<Integer, Meal>> repository = new ConcurrentHashMap<>();
     private AtomicInteger counter = new AtomicInteger(0);
@@ -77,7 +75,7 @@ public class InMemoryMealRepositoryImpl implements MealRepository {
     private Stream<Meal> getAllAsStream(int userId) {
         Map<Integer, Meal> meals = repository.get(userId);
         return meals == null ?
-                Stream.empty() : meals.values().stream().sorted(MEAL_COMPARATOR);
+                Stream.empty() : meals.values().stream().sorted(Comparator.comparing(Meal::getDateTime).reversed());
     }
 }
 

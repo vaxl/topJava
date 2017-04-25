@@ -35,7 +35,7 @@ public class User extends NamedEntity {
     @Length(min = 5)
     private String password;
 
-    @Column(name = "enabled", nullable = false)
+    @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
     private boolean enabled = true;
 
     @Column(name = "registered", columnDefinition = "timestamp default now()")
@@ -118,7 +118,7 @@ public class User extends NamedEntity {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + getId() +
                 ", email=" + email +
                 ", name=" + name +
                 ", enabled=" + enabled +
