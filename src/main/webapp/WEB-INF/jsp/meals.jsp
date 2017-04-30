@@ -5,13 +5,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Meal list</title>
+    <title>Calories management</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <section>
-    <h2><a href="index.html">Home</a></h2>
-    <h2>Meal list</h2>
+    <h3>Meals</h3>
     <form method="post" action="meals?action=filter">
         <dl>
             <dt>From Date:</dt>
